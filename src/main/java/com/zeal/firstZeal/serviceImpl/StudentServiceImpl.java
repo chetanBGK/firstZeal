@@ -22,7 +22,8 @@ public class StudentServiceImpl implements StudentServices {
     @Override
     public Student createStudent(Student student
             ,int branchId) {
-        Branch branch= branchRepo.findById(branchId).get();
+        Branch branch= branchRepo.findById(branchId)
+                .get();
         student.setBranch(branch);
         return studentRepository.save(student);
     }
@@ -36,7 +37,10 @@ public class StudentServiceImpl implements StudentServices {
     @Override
     public Student getStudentById(int id) {
         return studentRepository.findById(id)
-                .orElseThrow(()-> new ResourceNotFoundException("Student not found with id ", id));
+                .orElseThrow(()->new
+                        ResourceNotFoundException
+                        ("Student not found with id",id));
+
     }
 
     @Override

@@ -3,6 +3,8 @@ package com.zeal.firstZeal.controller;
 import com.zeal.firstZeal.entity.Student;
 import com.zeal.firstZeal.services.StudentServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,9 +44,9 @@ public class ZealController {
     }
 
     @GetMapping("getall")
-    public List<Student> getAllStudents()
+    public ResponseEntity<List<Student>> getAllStudents()
     {
-        return studentServices.getAllStudents();
+        return new ResponseEntity<>(studentServices.getAllStudents(), HttpStatus.OK);
     }
 
     @GetMapping("getbyid/{id}")

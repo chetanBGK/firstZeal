@@ -1,5 +1,6 @@
 package com.zeal.firstZeal.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,6 +24,10 @@ public class Student {
     private String address;
 
     @ManyToOne
+//    @JsonManagedReference
+    @JsonBackReference
     Branch branch;
+
+
 }
 

@@ -4,7 +4,8 @@ import lombok.Data;
 import lombok.Getter;
 
 @Getter
-public class ResourceNotFoundException extends RuntimeException{
+public class ResourceNotFoundException
+        extends RuntimeException{
 //    String message1;
     int id;
 
